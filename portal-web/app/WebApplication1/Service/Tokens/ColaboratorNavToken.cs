@@ -5,7 +5,7 @@ using System.Text;
 
 namespace WebApplication1.Service.Tokens
 {
-    public class StartRegisterToken
+    public class ColaboratorNavToken
     {
         public string Create(string email)
         {
@@ -16,9 +16,9 @@ namespace WebApplication1.Service.Tokens
                 Subject = new ClaimsIdentity(new[]
                 {
                     new Claim(ClaimTypes.Email, email),
-                    new Claim(ClaimTypes.Role, "RegisterRole"),
+                    new Claim(ClaimTypes.Role, "ColaboratorRole"),
                 }),
-                Expires = DateTime.UtcNow.AddHours(1),
+                Expires = DateTime.UtcNow.AddHours(24),
                 SigningCredentials = new SigningCredentials(
                     new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };

@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace WebApplication1.Data.DTO
 {
-    public class PostUserDTO
+    public class PostUserColaboratorDTO
     {
         public string? Email { get; set; }
 

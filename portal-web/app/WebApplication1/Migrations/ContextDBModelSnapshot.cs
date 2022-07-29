@@ -72,6 +72,12 @@ namespace WebApplication1.Migrations
                         .HasColumnType("varchar")
                         .HasColumnName("password");
 
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar")
+                        .HasColumnName("type");
+
                     b.HasKey("Id");
 
                     b.ToTable("users");

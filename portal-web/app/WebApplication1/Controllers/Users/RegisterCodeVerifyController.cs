@@ -21,9 +21,16 @@ namespace WebApplication1.Controllers.Users
         [AllowAnonymous]
         public IActionResult Verify([FromBody] CodeVerifyDTO dto)
         {
-            ServiceResult result = _service.execute(dto);
-            if (result.Error) return Unauthorized(result);
-            return Ok(result);
+            try
+            {
+                ServiceResult result = _service.execute(dto);
+                if (result.Error) return Unauthorized(result);
+                return Ok(result);
+            }
+            catch
+            {
+                return BadRequest("Erro interno de servidor");
+            }
         }
     }
 }

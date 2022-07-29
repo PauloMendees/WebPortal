@@ -15,7 +15,7 @@ namespace WebApplication1.Service.UserService
             _context = context;
         }
 
-        public ServiceResult execute(PostUserDTO dto)
+        public ServiceResult execute(PostUserColaboratorDTO dto)
         {
             try
             {
@@ -23,7 +23,7 @@ namespace WebApplication1.Service.UserService
                 GenerateHash crypto = new GenerateHash();
                 bool passwordIsValid = validator.PasswordValidate(dto.Password);
                 if (!passwordIsValid) return new ServiceResult(true, "Senha inválida. Deve haver 1 maiúscula, 1 minúscula, 1 símbolo e 8 dígitos.");
-                User user = new User(crypto.execute(dto.Password), dto.Email, Guid.NewGuid());
+                User user = new User(crypto.execute(dto.Password), dto.Email, "colaborator", Guid.NewGuid());
                 _context.users.Add(user);
                 _context.SaveChanges();
                 return new ServiceResult(false, "Usuário cadastrado com sucesso.");

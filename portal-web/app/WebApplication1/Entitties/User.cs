@@ -17,11 +17,14 @@ namespace WebApplication1.Entitties
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
-        public User(string password, string email, Guid id = default)
+        [Required]
+        public string Type { get; set; }
+        public User(string password, string email, string type, Guid id = default)
         {
             Password = password;
             Email = email;
             Id = id;
+            Type = type;
         }
     }
 }

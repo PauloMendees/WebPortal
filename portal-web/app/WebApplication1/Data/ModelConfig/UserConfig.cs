@@ -28,6 +28,12 @@ namespace WebApplication1.Data.ModelConfig
                 .HasColumnType("varchar")
                 .HasMaxLength(100)
                 .IsRequired();
+
+            builder.Property(b => b.Type)
+                .HasColumnName("type")
+                .HasColumnType("varchar")
+                .HasMaxLength(20)
+                .IsRequired();
         }
     }
 }

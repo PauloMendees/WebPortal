@@ -21,9 +21,16 @@ namespace WebApplication1.Controllers.Users
         [AllowAnonymous]
         public IActionResult StartRegisterUser([FromBody] StartRegisterDTO dto)
         {
-            ServiceResult result = _service.execute(dto.Email);
-            if(result.Error) return BadRequest(result);
-            return Ok(result.Message);
+            try
+            {
+                ServiceResult result = _service.execute(dto.Email);
+                if(result.Error) return BadRequest(result);
+                return Ok(result.Message);
+            }
+            catch
+            {
+                return BadRequest("Erro interno de servidor");
+            }
         }
     }
 }

@@ -12,8 +12,8 @@ using WebApplication1.Data;
 namespace WebApplication1.Migrations
 {
     [DbContext(typeof(ContextDB))]
-    [Migration("20220729020136_Adicionando tabelas")]
-    partial class Adicionandotabelas
+    [Migration("20220729170622_adding type on user")]
+    partial class addingtypeonuser
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -73,6 +73,12 @@ namespace WebApplication1.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("varchar")
                         .HasColumnName("password");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar")
+                        .HasColumnName("type");
 
                     b.HasKey("Id");
 

@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace WebApplication1.Migrations
 {
-    public partial class Adicionandotabelas : Migration
+    public partial class addingtypeonuser : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -28,7 +28,8 @@ namespace WebApplication1.Migrations
                 {
                     id = table.Column<Guid>(type: "uuid", maxLength: 128, nullable: false),
                     email = table.Column<string>(type: "varchar", maxLength: 100, nullable: false),
-                    password = table.Column<string>(type: "varchar", maxLength: 100, nullable: false)
+                    password = table.Column<string>(type: "varchar", maxLength: 100, nullable: false),
+                    type = table.Column<string>(type: "varchar", maxLength: 20, nullable: false)
                 },
                 constraints: table =>
                 {

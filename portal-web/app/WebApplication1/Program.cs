@@ -32,6 +32,7 @@ builder.Services.AddScoped<StartRegister, StartRegister>();
 builder.Services.AddScoped<RegisterCodeVerify, RegisterCodeVerify>();
 builder.Services.AddScoped<GenerateHash, GenerateHash>();
 builder.Services.AddScoped<Register, Register>();
+builder.Services.AddScoped<Login, Login>();
 
 byte[] key = Encoding.ASCII.GetBytes(Environment.GetEnvironmentVariable("TokenKey"));
 builder.Services.AddAuthentication(x =>

@@ -19,11 +19,18 @@ namespace WebApplication1.Controllers.Users
 
         [Authorize(Roles = "RegisterRole")]
         [HttpPost("/user/register")]
-        public IActionResult Register([FromBody] PostUserDTO dto)
+        public IActionResult Register([FromBody] PostUserColaboratorDTO dto)
         {
-            ServiceResult result = _service.execute(dto);
-            if(result.Error) return BadRequest(result);
-            return Ok(result);
+            try
+            {
+                ServiceResult result = _service.execute(dto);
+                if(result.Error) return BadRequest(result);
+                return Ok(result);
+            }
+            catch
+            {
+                return BadRequest("Erro interno de servidor");
+            }
         }
     }
 }
