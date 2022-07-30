@@ -1,8 +1,5 @@
 import type { NextPage } from "next";
-import LockIcon from "../assets/icons/Lock";
-import ProfileIcon from "../assets/icons/Profile";
 import { LoginForm } from "../components/pageLogin/LoginForm";
-import { Input } from "../components/shared/Input";
 import { H1 } from "../components/shared/Texts";
 
 const Home: NextPage = () => {

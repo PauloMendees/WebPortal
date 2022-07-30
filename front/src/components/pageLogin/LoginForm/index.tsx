@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import * as React from "react";
 import ArrowRightIcon from "../../../assets/icons/ArrowRight";
 import EyeCloseIcon from "../../../assets/icons/EyeClose";
@@ -10,6 +11,7 @@ import useLoginForm from "./hooks/useLoginForm";
 
 export function LoginForm() {
     const { handleShowPassword, showPassword } = useLoginForm()
+  const router = useRouter()
 
   return (
     <form className="w-[80%] sm:w-[80%] md:w-[60%] lg:w-[50%] xl:w-[30%] 2xl:w-[22%] flex flex-col gap-5 items-end">
@@ -30,7 +32,7 @@ export function LoginForm() {
         placeholder="Senha"
         />
         <div className="text-xs opacity-80 w-full flex justify-between items-center">
-            <a className="cursor-pointer">{`Cadastre-se`}</a>
+            <a className="cursor-pointer" onClick={() => { router.push('/register') }}>{`Cadastre-se`}</a>
             <a className="cursor-pointer">{`Esqueci minha senha`}</a>
         </div>
         <Button type="submit" className="">
