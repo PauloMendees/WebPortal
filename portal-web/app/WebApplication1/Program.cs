@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using WebApplication1.Data;
+using WebApplication1.HostedServers;
 using WebApplication1.Service.Client;
 using WebApplication1.Service.Criptografia;
 using WebApplication1.Service.Email;
@@ -35,6 +36,9 @@ builder.Services.AddScoped<GenerateHash, GenerateHash>();
 builder.Services.AddScoped<Register, Register>();
 builder.Services.AddScoped<Login, Login>();
 builder.Services.AddScoped<PostClient, PostClient>();
+builder.Services.AddHostedService<DolarHostedServer>();
+builder.Services.AddHostedService<DolarCurrency>();
+builder.Services.AddHttpClient();
 
 byte[] key = Encoding.ASCII.GetBytes(Environment.GetEnvironmentVariable("TokenKey"));
 builder.Services.AddAuthentication(x =>

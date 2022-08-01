@@ -20,5 +20,6 @@ namespace WebApplication1.Data
         public DbSet<User> users { get; set; }
         public DbSet<RegisterCode> registerCodes { get; set; }
         public DbSet<Cliente> clients { get; set; }
+        public DbSet<DolarData> dolarData { get; set; }
     }
 }
