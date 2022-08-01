@@ -1,5 +1,5 @@
 ﻿using WebApplication1.Data;
-using WebApplication1.Data.DTO;
+using WebApplication1.Data.DTO.User;
 using WebApplication1.Entitties;
 using WebApplication1.Service.Criptografia;
 using WebApplication1.Utils;

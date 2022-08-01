@@ -1,9 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.Text.Json.Serialization;
 
-namespace WebApplication1.Data.DTO
+namespace WebApplication1.Data.DTO.User
 {
-    public class PostUserColaboratorDTO
+    public class LoginDTO
     {
         public string? Email { get; set; }
 

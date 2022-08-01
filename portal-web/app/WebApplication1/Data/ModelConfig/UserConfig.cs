@@ -26,7 +26,7 @@ namespace WebApplication1.Data.ModelConfig
             builder.Property(b => b.Password)
                 .HasColumnName("password")
                 .HasColumnType("varchar")
-                .HasMaxLength(100)
+                .HasMaxLength(200)
                 .IsRequired();
 
             builder.Property(b => b.Type)

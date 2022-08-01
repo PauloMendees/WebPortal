@@ -3,5 +3,6 @@ export const apiRoutes = {
         start: "/user/startRegister",
         codeVerify: "/user/codeVerify",
         finalize: "/user/register"
-    }
+    },
+    login: "/user/login"
 }

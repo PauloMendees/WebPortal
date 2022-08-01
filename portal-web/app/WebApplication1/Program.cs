@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using WebApplication1.Data;
+using WebApplication1.Service.Client;
 using WebApplication1.Service.Criptografia;
 using WebApplication1.Service.Email;
 using WebApplication1.Service.UserService;
@@ -33,6 +34,7 @@ builder.Services.AddScoped<RegisterCodeVerify, RegisterCodeVerify>();
 builder.Services.AddScoped<GenerateHash, GenerateHash>();
 builder.Services.AddScoped<Register, Register>();
 builder.Services.AddScoped<Login, Login>();
+builder.Services.AddScoped<PostClient, PostClient>();
 
 byte[] key = Encoding.ASCII.GetBytes(Environment.GetEnvironmentVariable("TokenKey"));
 builder.Services.AddAuthentication(x =>

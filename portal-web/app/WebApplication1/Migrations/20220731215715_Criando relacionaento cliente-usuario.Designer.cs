@@ -12,8 +12,8 @@ using WebApplication1.Data;
 namespace WebApplication1.Migrations
 {
     [DbContext(typeof(ContextDB))]
-    [Migration("20220729170622_adding type on user")]
-    partial class addingtypeonuser
+    [Migration("20220731215715_Criando relacionaento cliente-usuario")]
+    partial class Criandorelacionaentoclienteusuario
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,6 +23,55 @@ namespace WebApplication1.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
+
+            modelBuilder.Entity("WebApplication1.Entitties.Client", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasMaxLength(128)
+                        .IsUnicode(true)
+                        .HasColumnType("uuid")
+                        .HasColumnName("id");
+
+                    b.Property<DateTime>("BirthDate")
+                        .HasColumnType("Date")
+                        .HasColumnName("birth_date");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("Date")
+                        .HasColumnName("created_at");
+
+                    b.Property<Guid>("CreatedBy_id")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(70)
+                        .HasColumnType("varchar")
+                        .HasColumnName("email");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar")
+                        .HasColumnName("name");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("varchar")
+                        .HasColumnName("password_hash");
+
+                    b.Property<int>("RG")
+                        .HasColumnType("int")
+                        .HasColumnName("rg");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CreatedBy_id");
+
+                    b.ToTable("clients");
+                });
 
             modelBuilder.Entity("WebApplication1.Entitties.RegisterCode", b =>
                 {
@@ -70,7 +119,7 @@ namespace WebApplication1.Migrations
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasMaxLength(100)
+                        .HasMaxLength(200)
                         .HasColumnType("varchar")
                         .HasColumnName("password");
 
@@ -83,6 +132,22 @@ namespace WebApplication1.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("users");
+                });
+
+            modelBuilder.Entity("WebApplication1.Entitties.Client", b =>
+                {
+                    b.HasOne("WebApplication1.Entitties.User", "CreatedBy")
+                        .WithMany("ClientesCadastrados")
+                        .HasForeignKey("CreatedBy_id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("CreatedBy");
+                });
+
+            modelBuilder.Entity("WebApplication1.Entitties.User", b =>
+                {
+                    b.Navigation("ClientesCadastrados");
                 });
 #pragma warning restore 612, 618
         }

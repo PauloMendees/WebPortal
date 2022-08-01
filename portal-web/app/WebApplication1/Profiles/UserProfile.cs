@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using WebApplication1.Data.DTO;
+using WebApplication1.Data.DTO.User;
 using WebApplication1.Entitties;
 
 namespace WebApplication1.Profiles

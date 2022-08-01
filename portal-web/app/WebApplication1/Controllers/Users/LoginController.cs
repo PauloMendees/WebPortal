@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using WebApplication1.Data.DTO;
+using WebApplication1.Data.DTO.User;
 using WebApplication1.Service.UserService;
 using WebApplication1.Utils;
 

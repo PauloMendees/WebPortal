@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace WebApplication1.Data.DTO
+namespace WebApplication1.Data.DTO.User
 {
     public class ReadUserDTO
     {

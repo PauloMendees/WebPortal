@@ -15,6 +15,10 @@ a {
   text-decoration: none;
 }
 
+div, h1, h2, h3, h5, h6, span, form {
+  background-color: #120F1A;
+}
+
 * {
   box-sizing: border-box;
 }
