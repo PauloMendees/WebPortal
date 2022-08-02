@@ -27,7 +27,7 @@ namespace WebApplication1.Service.Client
                 if (clienteDB != null) return new ServiceResult(true, "Email já cadastrado");
                 if (createdBy == null) return new ServiceResult(true, "Email de usuário não encontrado.");
                 GenerateHash crypto = new GenerateHash();
-                Cliente client = new Cliente(Guid.NewGuid(), dto.Email, dto.RG, dto.Nome, crypto.execute(dto.Password), createdBy.Id, dto.BirthDate, DateTime.UtcNow);
+                Cliente client = new Cliente(Guid.NewGuid(), dto.Email, dto.RG, dto.Nome, crypto.execute(dto.Password), createdBy.Id, dto.BirthDate, DateTime.UtcNow, dto.Selfie, dto.Document);
                 _context.Add(client);
                 _context.SaveChanges();
                 return new ServiceResult(false, "Cliente criado com sucesso.");

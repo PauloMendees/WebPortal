@@ -22,6 +22,12 @@ namespace WebApplication1.Entitties
         public string Password {get; set; }
 
         [Required]
+        public string Selfie { get; set; }
+
+        [Required]
+        public string Document { get; set; }
+
+        [Required]
         public User? CreatedBy { get; set; }
 
         [Required]
@@ -33,7 +39,7 @@ namespace WebApplication1.Entitties
         [Required]
         public DateTime CreatedAt { get; set; }
 
-        public Cliente(Guid id, string email, int rG, string nome, string password, Guid createdBy_id, DateTime birthDate, DateTime createdAt)
+        public Cliente(Guid id, string email, int rG, string nome, string password, Guid createdBy_id, DateTime birthDate, DateTime createdAt, string selfie, string document)
         {
             Id = id;
             Email = email;
@@ -43,6 +49,8 @@ namespace WebApplication1.Entitties
             CreatedBy_id = createdBy_id;
             BirthDate = birthDate;
             CreatedAt = createdAt;
+            Selfie = selfie;
+            Document = document;
         }
     }
 }

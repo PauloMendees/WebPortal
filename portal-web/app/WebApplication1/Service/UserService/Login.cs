@@ -22,23 +22,24 @@ namespace WebApplication1.Service.UserService
             {
                 GenerateHash crypto = new GenerateHash();
                 User? user = _context.users.FirstOrDefault(x => x.Email == dto.Email);
-                Console.WriteLine("Teste");
-                if (user == null) return new LoginResult("", "invalid", true, "Email ou senha inválidos.");
                 string cryptPassword = crypto.execute(dto.Password);
-                if(dto.Email == user.Email && cryptPassword == user.Password)
+                if (user == null)
                 {
-                    if(user.Type == "colaborator")
-                    {
-                        ColaboratorNavToken tokenService = new ColaboratorNavToken();
-                        string token = tokenService.Create(user.Email);
-                        return new LoginResult(token, user.Type, false, "Autenticação bem sucedida.");
-                    }
-                    else
+                    Cliente? client = _context.clients.FirstOrDefault(x => x.Email == dto.Email);
+                    if (client == null) return new LoginResult("", "invalid", true, "Email ou senha inválidos.");
+                    if(client.Email == dto.Email && client.Password == cryptPassword)
                     {
                         ClientNavToken tokenService = new ClientNavToken();
                         string token = tokenService.Create(user.Email);
-                        return new LoginResult(token, user.Type, false, "Autenticação bem sucedida.");
+                        return new LoginResult(token, "client", false, "Autenticação bem sucedida.");
                     }
+
+                };
+                if(dto.Email == user.Email && cryptPassword == user.Password)
+                {
+                    ColaboratorNavToken tokenService = new ColaboratorNavToken();
+                    string token = tokenService.Create(user.Email);
+                    return new LoginResult(token, user.Type, false, "Autenticação bem sucedida.");
                 }
                 else
                 {

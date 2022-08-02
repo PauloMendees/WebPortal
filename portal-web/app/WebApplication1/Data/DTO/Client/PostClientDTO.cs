@@ -22,6 +22,12 @@ namespace WebApplication1.Data.DTO.Client
         public string CreatedByEmail { get; set; }
 
         [Required]
+        public string Selfie { get; set; }
+
+        [Required]
+        public string Document { get; set; }
+
+        [Required]
         public DateTime BirthDate { get; set; }
     }
 }

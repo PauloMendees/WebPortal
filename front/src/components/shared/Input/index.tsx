@@ -29,7 +29,7 @@ export function Input({
   return (
     <>
       <When value={label}>
-        <label className={`mb-1 text-primary-white ${active ? "text-primary-purple" : "" } duration-200`}>{label}</label>
+        <label className={`mb-1 text-primary-white text-base ${active ? "text-primary-purple" : "" } duration-200`}>{label}</label>
       </When>
       <div
         className={`w-full flex items-center justify-between border-primary-white rounded-xl border-[1px] px-3 py-[6px] gap-3 ${
@@ -54,6 +54,7 @@ export function Input({
           type={rest.type}
           required={isRequired}
           placeholder={rest.placeholder}
+          onFocus={rest.onFocus}
         />
         <When value={onRightIcon}>
           <div className={handleRightIconClick ? "cursor-pointer" : ""} onClick={handleRightIconClick ? handleRightIconClick : () => {}}>
