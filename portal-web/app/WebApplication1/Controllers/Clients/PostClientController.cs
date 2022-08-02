@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using WebApplication1.Data.DTO.Client;
 using WebApplication1.Service.Client;
 using WebApplication1.Utils;
@@ -16,6 +17,7 @@ namespace WebApplication1.Controllers.Clients
             _service = service;
         }
 
+        [Authorize(Roles = "ColaboratorRole")]
         [HttpPost("/client/post")]
         public IActionResult create([FromBody] PostClientDTO dto)
         {

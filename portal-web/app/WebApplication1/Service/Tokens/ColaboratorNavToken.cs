@@ -16,7 +16,7 @@ namespace WebApplication1.Service.Tokens
                 Subject = new ClaimsIdentity(new[]
                 {
                     new Claim(ClaimTypes.Email, email),
-                    new Claim(ClaimTypes.Role, "ColaboratorRole"),
+                    new Claim(ClaimTypes.Role, "ColaboratorRole")
                 }),
                 Expires = DateTime.UtcNow.AddHours(24),
                 SigningCredentials = new SigningCredentials(
