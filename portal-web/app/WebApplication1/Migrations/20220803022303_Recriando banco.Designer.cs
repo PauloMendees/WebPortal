@@ -12,8 +12,8 @@ using WebApplication1.Data;
 namespace WebApplication1.Migrations
 {
     [DbContext(typeof(ContextDB))]
-    [Migration("20220801034655_Creating dolar data")]
-    partial class Creatingdolardata
+    [Migration("20220803022303_Recriando banco")]
+    partial class Recriandobanco
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -44,6 +44,10 @@ namespace WebApplication1.Migrations
                     b.Property<Guid>("CreatedBy_id")
                         .HasColumnType("uuid");
 
+                    b.Property<string>("Document")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasMaxLength(70)
@@ -65,6 +69,10 @@ namespace WebApplication1.Migrations
                     b.Property<int>("RG")
                         .HasColumnType("int")
                         .HasColumnName("rg");
+
+                    b.Property<string>("Selfie")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 

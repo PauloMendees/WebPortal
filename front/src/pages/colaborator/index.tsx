@@ -14,7 +14,7 @@ export default function Colaborator(){
   }
 
     return (
-        <div className='bg-backgroundColor w-screen'>
+        <div className='bg-backgroundColor w-full'>
             <ToolBar />
             <div className='w-full px-14 mt-8 flex flex-col items-center justify-center gap-8'>
               <ActionsToolbar handleOpenClientForm={handleOpenClientForm} />
@@ -40,4 +40,4 @@ export const getServerSideProps = async (ctx: any) => {
     return {
       props: {}
     }
-  }
+}

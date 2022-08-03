@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export default function useActionToolbar(){
+export default function useSearchAnimated(){
     const [openSearch, setOpenSearch] = useState<boolean>(false)
     const [searchColor, setSearchColor] = useState<string>("#fff")
 

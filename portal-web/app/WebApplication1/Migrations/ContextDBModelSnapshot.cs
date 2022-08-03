@@ -42,6 +42,10 @@ namespace WebApplication1.Migrations
                     b.Property<Guid>("CreatedBy_id")
                         .HasColumnType("uuid");
 
+                    b.Property<string>("Document")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasMaxLength(70)
@@ -63,6 +67,10 @@ namespace WebApplication1.Migrations
                     b.Property<int>("RG")
                         .HasColumnType("int")
                         .HasColumnName("rg");
+
+                    b.Property<string>("Selfie")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 

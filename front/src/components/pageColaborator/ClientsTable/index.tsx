@@ -1,5 +1,5 @@
 import React from "react";
-import { DividerTable } from "./DividerTable";
+import { DividerTable } from "../../shared/DividerTable";
 import { TableBodyCell } from "./TableBodyCell";
 import { TableHead } from "./TableHead";
 

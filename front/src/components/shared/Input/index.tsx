@@ -55,6 +55,7 @@ export function Input({
           required={isRequired}
           placeholder={rest.placeholder}
           onFocus={rest.onFocus}
+          onChange={rest.onChange}
         />
         <When value={onRightIcon}>
           <div className={handleRightIconClick ? "cursor-pointer" : ""} onClick={handleRightIconClick ? handleRightIconClick : () => {}}>

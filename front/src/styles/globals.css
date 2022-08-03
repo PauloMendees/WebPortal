@@ -84,6 +84,20 @@ select:-webkit-autofill:focus {
   color: white;
 }
 
+body::-webkit-scrollbar, div::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track, div::-webkit-scrollbar-track {
+  background: #120F1A;        /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb, div::-webkit-scrollbar-thumb {
+  background-color: #302D36;    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px solid #302D36;  /* creates padding around scroll thumb */
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

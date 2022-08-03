@@ -32,7 +32,7 @@ namespace WebApplication1.HostedServers
                     _context.dolarData.Add(dolarBd);
                     _context.SaveChanges();
                 }
-                await Task.Delay(1000);
+                await Task.Delay(10000);
             }
         }
     }

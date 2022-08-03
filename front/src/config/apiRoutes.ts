@@ -4,5 +4,11 @@ export const apiRoutes = {
         codeVerify: "/user/codeVerify",
         finalize: "/user/register"
     },
-    login: "/user/login"
+    login: "/user/login",
+    dolar: {
+        getMax: '/dolar/getmax',
+        getMin: '/dolar/getmin',
+        getMedia: '/dolar/getmedia',
+        getAll: '/dolar/getall'
+    }
 }

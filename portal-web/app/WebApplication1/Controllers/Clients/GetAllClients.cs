@@ -17,7 +17,7 @@ namespace WebApplication1.Controllers.Clients
         }
 
         [Authorize(Roles = "ColaboratorRole")]
-        [HttpPost("/client/post")]
+        [HttpPost("/client/getall")]
         public IActionResult list()
         {
             try
