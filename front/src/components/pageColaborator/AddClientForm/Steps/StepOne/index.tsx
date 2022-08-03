@@ -1,12 +1,19 @@
+import { LinearProgress } from "@mui/material";
 import React from "react";
 import { Input } from "../../../../shared/Input";
 import UploadZone from "../../../../shared/UploadZone";
+import { When } from "../../../../shared/When";
 
 type StepOneProps = {
   handleDocument: (file: File) => void;
+  showInputs: boolean;
+  loadingInfos: boolean;
+  name: string
+  rg: string
+  date: string
 };
 
-export function StepOne({ handleDocument }: StepOneProps) {
+export function StepOne({ handleDocument, showInputs, loadingInfos, date, name, rg }: StepOneProps) {
   return (
     <>
       <div className="w-full flex flex-col gap-2">
@@ -21,33 +28,44 @@ export function StepOne({ handleDocument }: StepOneProps) {
           }}
         />
       </div>
-      <div className="w-[30%]">
-        <Input
-          className="w-full"
-          required
-          label="Nome:"
-          placeholder="Paulo Mendes"
-          id="nameInput"
-        />
-      </div>
-      <div className="w-[30%]">
-        <Input
-          className="w-full"
-          required
-          label="RG:"
-          placeholder="9878789"
-          id="nameInput"
-        />
-      </div>
-      <div className="w-[30%]">
-        <Input
-          className="w-full"
-          required
-          label="Data de nascimento:"
-          id="nameInput"
-          type={"date"}
-        />
-      </div>
+      <When value={loadingInfos}>
+        <LinearProgress color="primary" sx={{width: '100%'}} />
+      </When>
+      <When value={showInputs}>
+        <div className="w-[30%]">
+          <Input
+            value={name}
+            className="w-full"
+            required
+            label="Nome:"
+            placeholder="Paulo Mendes"
+            id="nameInput"
+            readOnly
+          />
+        </div>
+        <div className="w-[30%]">
+          <Input
+            value={rg}
+            className="w-full"
+            required
+            label="RG:"
+            placeholder="9878789"
+            readOnly
+            id="rgInput"
+          />
+        </div>
+        <div className="w-[30%]">
+          <Input
+            value={date}
+            className="w-full"
+            required
+            label="Data de nascimento:"
+            readOnly
+            id="dateInput"
+            placeholder="Data de nascimento"
+          />
+        </div>
+      </When>
     </>
   );
 }

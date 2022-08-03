@@ -18,7 +18,7 @@ export function AddClientForm(props: AddClientFormProps) {
 
   return (
     <When value={open}>
-      <div className="bg-grayscale-900 w-full rounded-xl py-5 px-6 flex flex-col gap-4">
+      <div className="bg-grayscale-900 w-full rounded-xl py-5 px-6 flex flex-col gap-8">
         <H3>{`Cadastrar cliente`}</H3>
         <form className="w-full flex justify-between items-center gap-8 flex-wrap">
           {steps[actualStep]}

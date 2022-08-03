@@ -36,7 +36,7 @@ export function AuthProvider({ children }: any) {
     await loginRequest(payload, {
       onSuccess: (res) => {
         setCookie(undefined, "web-portal-user-email", payload.email)
-        setCookie(undefined, "webportal-token-nav", res.data.token);
+        setCookie(undefined, "webportal-token-nav", res.data.token)
         router.push(res.data.userType)
         setIsAuthenticated(true)
       },

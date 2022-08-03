@@ -29,7 +29,13 @@ export function Input({
   return (
     <>
       <When value={label}>
-        <label className={`mb-1 text-primary-white text-base ${active ? "text-primary-purple" : "" } duration-200`}>{label}</label>
+        <label
+          className={`mb-1 text-primary-white text-base ${
+            active ? "text-primary-purple" : ""
+          } duration-200`}
+        >
+          {label}
+        </label>
       </When>
       <div
         className={`w-full flex items-center justify-between border-primary-white rounded-xl border-[1px] px-3 py-[6px] gap-3 ${
@@ -37,7 +43,10 @@ export function Input({
         } duration-200`}
       >
         <When value={onLeftIcon}>
-          <div className={handleLeftIconClick ? "cursor-pointer" : ""} onClick={handleLeftIconClick ? handleLeftIconClick : () => {}}>
+          <div
+            className={handleLeftIconClick ? "cursor-pointer" : ""}
+            onClick={handleLeftIconClick ? handleLeftIconClick : () => {}}
+          >
             {onLeftIcon}
           </div>
         </When>
@@ -56,9 +65,14 @@ export function Input({
           placeholder={rest.placeholder}
           onFocus={rest.onFocus}
           onChange={rest.onChange}
+          readOnly={rest.readOnly}
+          value={rest.value}
         />
         <When value={onRightIcon}>
-          <div className={handleRightIconClick ? "cursor-pointer" : ""} onClick={handleRightIconClick ? handleRightIconClick : () => {}}>
+          <div
+            className={handleRightIconClick ? "cursor-pointer" : ""}
+            onClick={handleRightIconClick ? handleRightIconClick : () => {}}
+          >
             {onRightIcon}
           </div>
         </When>

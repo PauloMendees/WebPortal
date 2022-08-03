@@ -10,5 +10,11 @@ export const apiRoutes = {
         getMin: '/dolar/getmin',
         getMedia: '/dolar/getmedia',
         getAll: '/dolar/getall'
+    },
+    most: {
+        auth: '/user/authenticate',
+        contentExtraction: '/process-image/content-extraction',
+        liveness: '/liveness/detect',
+        faceCompare: '/process-image/biometrics/face-compare'
     }
 }
