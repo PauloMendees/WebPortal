@@ -11,9 +11,6 @@ import { dataURLtoFile } from "../../../../utils/dataURLtoFile";
 import { StepOne } from "../Steps/StepOne";
 import { StepThree } from "../Steps/StepThree";
 import { StepTwo } from "../Steps/StepTwo";
-
-const fs   = require('web-fs')
-
 export default function useAddClientForm() {
   const [actualStep, setActualStep] = useState<number>(0);
   const [showInputs, setShowInputs] = useState<boolean>(false);
