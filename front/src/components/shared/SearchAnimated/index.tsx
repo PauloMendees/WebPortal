@@ -1,7 +1,29 @@
+import { ReactElement } from "react";
 import SearchIcon from "../../../assets/icons/Search";
 import useSearchAnimated from "./hooks/useSearchAnimated";
 
-export function SearchAnimated() {
+type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
+  isRequired?: boolean;
+  onLeftIcon?: ReactElement;
+  onRightIcon?: ReactElement;
+  handleRightIconClick?: () => void;
+  handleLeftIconClick?: () => void;
+  label?: string;
+  dataTestId?: string;
+  className?: string;
+};
+
+export function SearchAnimated({
+  className,
+  dataTestId,
+  handleLeftIconClick,
+  handleRightIconClick,
+  isRequired,
+  label,
+  onLeftIcon,
+  onRightIcon,
+  ...rest
+}: InputProps) {
   const { handleSearch, handleSearchColor, openSearch, searchColor } =
     useSearchAnimated();
 
@@ -27,6 +49,8 @@ export function SearchAnimated() {
         className={`bg-transparent text-primary-white ${
           openSearch ? `w-[300px]` : `w-0`
         } duration-200 outline-none`}
+        onChange={rest.onChange}
+        value={rest.value}
       />
     </div>
   );

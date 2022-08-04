@@ -33,7 +33,8 @@ namespace WebApplication1.Data.ModelConfig
             builder
                 .Property(x => x.RG)
                 .HasColumnName("rg")
-                .HasColumnType("int")
+                .HasColumnType("char")
+                .HasMaxLength(20)
                 .IsRequired();
 
             builder
@@ -56,9 +57,10 @@ namespace WebApplication1.Data.ModelConfig
                 .IsRequired();
 
             builder
-                .HasOne(x => x.CreatedBy)
-                .WithMany(x => x.ClientesCadastrados)
-                .HasForeignKey(x => x.CreatedBy_id);
+                .Property(x => x.CreatedBy_email)
+                .HasColumnName("created_by")
+                .HasMaxLength(100)
+                .IsRequired();
         }
     }
 }

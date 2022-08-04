@@ -16,11 +16,11 @@ export function mostQIService(){
     }
 
     async function liveness(payload: FormData){
-        await authApi.post(most.liveness, payload).then((res) => res)
+        return await authApi.post(most.liveness, payload).then((res) => res)
     }
 
     async function faceCompare(payload: FormData){
-        await authApi.post(most.faceCompare, payload).then((res) => res)
+        return await authApi.post(most.faceCompare, payload).then((res) => res)
     }
 
     return { auth, contentExtraction, liveness, faceCompare }

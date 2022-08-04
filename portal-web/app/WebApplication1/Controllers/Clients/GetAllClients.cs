@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using WebApplication1.Data;
 using WebApplication1.Entitties;
 using WebApplication1.Service.Client;
 
@@ -9,15 +10,17 @@ namespace WebApplication1.Controllers.Clients
     [Route("[controller]")]
     public class GetAllClients : ControllerBase
     {
+        private readonly ContextDB _context;
         private readonly ListClients _service;
 
-        public GetAllClients(ListClients service)
+        public GetAllClients(ListClients service, ContextDB context)
         {
             _service = service;
+            _context = context;
         }
 
+        [HttpGet("/client/getall")]
         [Authorize(Roles = "ColaboratorRole")]
-        [HttpPost("/client/getall")]
         public IActionResult list()
         {
             try

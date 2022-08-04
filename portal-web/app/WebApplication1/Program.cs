@@ -41,6 +41,7 @@ builder.Services.AddScoped<GetMax, GetMax>();
 builder.Services.AddScoped<GetMin, GetMin>();
 builder.Services.AddScoped<GetMedia, GetMedia>();
 builder.Services.AddScoped<GetAllDolar, GetAllDolar>();
+builder.Services.AddScoped<ListClients, ListClients>();
 builder.Services.AddHostedService<DolarHostedServer>();
 builder.Services.AddHostedService<DolarCurrency>();
 builder.Services.AddHttpClient();

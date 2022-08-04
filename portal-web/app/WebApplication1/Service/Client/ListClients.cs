@@ -14,7 +14,7 @@ namespace WebApplication1.Service.Client
 
         public List<Cliente> execute()
         {
-            List<Cliente> clientes = _context.clients.ToList();
+            var clientes = _context.clients.ToList();
             return clientes;
         }
     }

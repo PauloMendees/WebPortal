@@ -1,6 +1,7 @@
 import { LinearProgress } from "@mui/material";
 import React from "react";
 import { Input } from "../../../../shared/Input";
+import SnackBar from "../../../../shared/SnackBar";
 import UploadZone from "../../../../shared/UploadZone";
 import { When } from "../../../../shared/When";
 
@@ -11,11 +12,18 @@ type StepOneProps = {
   name: string
   rg: string
   date: string
+  errorMessage: string
+  clearState: () => void
 };
 
-export function StepOne({ handleDocument, showInputs, loadingInfos, date, name, rg }: StepOneProps) {
+export function StepOne({ handleDocument, showInputs, loadingInfos, date, name, rg, errorMessage, clearState }: StepOneProps) {
   return (
     <>
+      <SnackBar
+        message={errorMessage}
+        severity="error"
+        clearState={clearState}
+      />
       <div className="w-full flex flex-col gap-2">
         <label className={`mb-1 text-primary-white text-base`}>
           {`Documento com foto`}

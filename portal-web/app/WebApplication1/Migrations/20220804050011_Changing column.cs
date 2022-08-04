@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace WebApplication1.Migrations
 {
-    public partial class Recriandobanco : Migration
+    public partial class Changingcolumn : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -55,30 +55,30 @@ namespace WebApplication1.Migrations
                 {
                     id = table.Column<Guid>(type: "uuid", maxLength: 128, nullable: false),
                     email = table.Column<string>(type: "varchar", maxLength: 70, nullable: false),
-                    rg = table.Column<int>(type: "int", nullable: false),
+                    rg = table.Column<string>(type: "char(20)", maxLength: 20, nullable: false),
                     name = table.Column<string>(type: "varchar", maxLength: 50, nullable: false),
                     password_hash = table.Column<string>(type: "varchar", maxLength: 200, nullable: false),
                     Selfie = table.Column<string>(type: "text", nullable: false),
                     Document = table.Column<string>(type: "text", nullable: false),
-                    CreatedBy_id = table.Column<Guid>(type: "uuid", nullable: false),
+                    created_by = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
                     birth_date = table.Column<DateTime>(type: "Date", nullable: false),
-                    created_at = table.Column<DateTime>(type: "Date", nullable: false)
+                    created_at = table.Column<DateTime>(type: "Date", nullable: false),
+                    UserId = table.Column<Guid>(type: "uuid", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_clients", x => x.id);
                     table.ForeignKey(
-                        name: "FK_clients_users_CreatedBy_id",
-                        column: x => x.CreatedBy_id,
+                        name: "FK_clients_users_UserId",
+                        column: x => x.UserId,
                         principalTable: "users",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "id");
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_clients_CreatedBy_id",
+                name: "IX_clients_UserId",
                 table: "clients",
-                column: "CreatedBy_id");
+                column: "UserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

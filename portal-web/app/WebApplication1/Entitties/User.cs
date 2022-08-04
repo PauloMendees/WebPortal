@@ -20,7 +20,6 @@ namespace WebApplication1.Entitties
         [Required]
         public string Type { get; set; }
 
-        public virtual List<Cliente> ClientesCadastrados { get; set; }
         public User(string password, string email, string type, Guid id = default)
         {
             Password = password;

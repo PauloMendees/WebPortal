@@ -16,5 +16,9 @@ export const apiRoutes = {
         contentExtraction: '/process-image/content-extraction',
         liveness: '/liveness/detect',
         faceCompare: '/process-image/biometrics/face-compare'
+    },
+    clients: {
+        register: '/client/post',
+        list: '/client/getall'
     }
 }

@@ -9,7 +9,7 @@ namespace WebApplication1.Data.DTO.Client
         public string Email { get; set; }
 
         [Required]
-        public int RG { get; set; }
+        public string RG { get; set; }
 
         [Required]
         public string Nome { get; set; }

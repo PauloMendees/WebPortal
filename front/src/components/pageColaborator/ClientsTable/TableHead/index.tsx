@@ -10,7 +10,7 @@ export function TableHead() {
         <th className="md:text-base xl:text-lg 2xl:text-xl font-medium text-primary-white flex justify-start w-[20%] min-w-[10rem]">
           {`Nome`}
         </th>
-        <th className="md:text-base xl:text-lg 2xl:text-xl font-medium text-primary-white flex justify-start w-[12%] min-w-[6rem]">
+        <th className="md:text-base xl:text-lg 2xl:text-xl font-medium text-primary-white flex justify-start w-[15%] min-w-[6rem]">
           {`Aniversário`}
         </th>
         <th className="md:text-base xl:text-lg 2xl:text-xl font-medium text-primary-white flex justify-start w-[15%] min-w-[10rem]">

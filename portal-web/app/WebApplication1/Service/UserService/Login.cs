@@ -30,7 +30,7 @@ namespace WebApplication1.Service.UserService
                     if(client.Email == dto.Email && client.Password == cryptPassword)
                     {
                         ClientNavToken tokenService = new ClientNavToken();
-                        string token = tokenService.Create(user.Email);
+                        string token = tokenService.Create(client.Email);
                         return new LoginResult(token, "client", false, "Autenticação bem sucedida.");
                     }
 

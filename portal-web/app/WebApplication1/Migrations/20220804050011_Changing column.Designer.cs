@@ -12,8 +12,8 @@ using WebApplication1.Data;
 namespace WebApplication1.Migrations
 {
     [DbContext(typeof(ContextDB))]
-    [Migration("20220803022303_Recriando banco")]
-    partial class Recriandobanco
+    [Migration("20220804050011_Changing column")]
+    partial class Changingcolumn
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -41,8 +41,11 @@ namespace WebApplication1.Migrations
                         .HasColumnType("Date")
                         .HasColumnName("created_at");
 
-                    b.Property<Guid>("CreatedBy_id")
-                        .HasColumnType("uuid");
+                    b.Property<string>("CreatedBy_email")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)")
+                        .HasColumnName("created_by");
 
                     b.Property<string>("Document")
                         .IsRequired()
@@ -66,17 +69,22 @@ namespace WebApplication1.Migrations
                         .HasColumnType("varchar")
                         .HasColumnName("password_hash");
 
-                    b.Property<int>("RG")
-                        .HasColumnType("int")
+                    b.Property<string>("RG")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("char(20)")
                         .HasColumnName("rg");
 
                     b.Property<string>("Selfie")
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<Guid?>("UserId")
+                        .HasColumnType("uuid");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("CreatedBy_id");
+                    b.HasIndex("UserId");
 
                     b.ToTable("clients");
                 });
@@ -161,13 +169,9 @@ namespace WebApplication1.Migrations
 
             modelBuilder.Entity("WebApplication1.Entitties.Cliente", b =>
                 {
-                    b.HasOne("WebApplication1.Entitties.User", "CreatedBy")
+                    b.HasOne("WebApplication1.Entitties.User", null)
                         .WithMany("ClientesCadastrados")
-                        .HasForeignKey("CreatedBy_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("CreatedBy");
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("WebApplication1.Entitties.User", b =>
