@@ -8,6 +8,7 @@ import useLiveness from "../../../../hooks/most/useLiveness";
 import { PayloadPostClient } from "../../../../service/clients/types";
 import { AuthPayload } from "../../../../service/mostQI/types";
 import { dataURLtoFile } from "../../../../utils/dataURLtoFile";
+import { fileToBase64 } from "../../../../utils/fileToBase64";
 import { StepOne } from "../Steps/StepOne";
 import { StepThree } from "../Steps/StepThree";
 import { StepTwo } from "../Steps/StepTwo";
@@ -179,8 +180,12 @@ export default function useAddClientForm() {
         setActualStep(actualStep + 1);
       }
     } else {
-      const documentBase64 = validDocument?.toString();
-      const frontalImageBase64 = validFrontalImage?.toString();
+      let documentBase64 = '';
+      let frontalImageBase64 = '';
+      //@ts-ignore
+      await fileToBase64(validDocument?.name, validDocument.path).then((res) => documentBase64=res)
+      //@ts-ignore
+      await fileToBase64(validFrontalImage?.name, validFrontalImage.path).then((res) => frontalImageBase64=res)
       const { 'web-portal-user-email': savedEmail } = await parseCookies()
       if(!documentBase64 || !frontalImageBase64) return
 

@@ -36,8 +36,6 @@ export default function Colaborator() {
         router.push("/");
       }
     }
-
-    if (data) console.log(data.data);
   }, [data, error, router]);
 
   function handleOpenClientForm() {
