@@ -57,7 +57,6 @@ export default function Client() {
             id="searchInput"
             value={filter}
             onChange={(e) => {
-              console.log(e.target.value);
               setFilter(e.target.value);
             }}
           />
