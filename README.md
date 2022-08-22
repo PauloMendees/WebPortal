@@ -1,22 +1,157 @@
-# Desafio Fullstack
 
-Seguem abaixo os itens do desafio para os candidatos à vaga de Fullstack:
+# WebPortal
 
-1. [Constução de Portal Web](./portal-web/README.md)
-2. [Extras](extras/README.md)
+Projeto pessoal para desenvolvimento pessoal.
+Atualmente conta com uma página (cliente), a qual o usuáro logado pode acompanhar a cotação atual do dolar, por meio de um background service rodando no backend.
 
-## Instruções
+O sistema possui dois tipos de usuários, sendo eles, clientes e colaboradores, identificados por meio do token JWT. O cadastro da tela de login cadastra um novo COLABORADOR.
+## Variáveis de Ambiente
 
-Você deve clonar este projeto e desenvolvê-lo em seu próprio repositório, em modo **privado**.
+Para rodar esse projeto, você vai precisar adicionar as seguintes variáveis de ambiente no seu .env
 
-A implementação deve ficar na pasta correspondente ao desafio. Fique à vontade para adicionar qualquer tipo de conteúdo que julgue útil ao projeto como, alterar/acrescentar um README com instruções de como executá-lo, etc.
+### FRONTEND
 
-O projeto deverá ser apresentado à equipe do mostQi, onde serão avaliados o domínio das tecnologias envolvidas e a contextualização do candidato com o problema apresentado. A qualidade do código, versionamento, documentação, entre outros itens também serão avaliados.
+`NEXT_PUBLIC_API_BASE_URL` ---> URL do backend
 
-## Como os desafios deverão ser entregues
+### BACKEND
 
-Os desafios serão apresentados em data e hora combinados previamente por e-mail.
+`TokenKey` ---> UUID Utilizada para geração dos tokens JWT
 
-## mostQI
+`FromEmail` ---> Email para o envio do código de cadastro
 
-Acesse nosso [linkedin](https://www.linkedin.com/company/mobile-solution-technology/posts/?feedView=all) para mais informações sobre vagas e novidades.
+`EmailServerPort` ---> Porta do serviço de email
+
+`EmailPassword` ---> Senha de APP do email utilizado
+
+
+## Instalação
+
+### FRONTEND
+
+Clone este repositório, navegue até a pasta referente ao front-end e rode os seguintes comandos:
+
+```bash
+  yarn
+  yarn dev
+
+  or
+
+  npm install
+  npm run dev
+```
+
+### BACKEND
+
+Clone este repositório, navegue até a pasta referente ao back-end, abra utilizando o VisualStudio e rode o projeto.
+
+Observação*: Adicione as variáveis de ambiente necessárias do sistema para que o funcionamento não seja prejudicado.
+    
+    
+## Documentação da API
+
+A API contém o middleware do swagger, ou seja, para uma melhor visualização, clone o projeto, sete as variáveis de ambiente necessárias e rode o back-end pelo Visual Studio que uma página será aberta automaticamente com a documentação detalhada.
+
+#### Envia código para o email (início de registro)
+
+```http
+  POST /user/startRegister
+```
+
+| Parâmetro   | Tipo       | Descrição                           |
+| :---------- | :--------- | :---------------------------------- |
+| `email`     | `string`   | **Obrigatório**. Email o qual o código será enviado |
+
+---
+
+#### Verifica o código enviado para o email
+
+```http
+  POST /user/codeVerify
+```
+
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `email`      | `string` | **Obrigatório**. Email o qual o código foi enviado |
+| `code`      | `string` | **Obrigatório**. Código enviado para o email |
+
+---
+
+#### Finaliza o registro de usuário (precisa do token retornado da verificação anterior como header de autorização)
+
+```http
+  POST /user/register
+```
+
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `email`      | `string` | **Obrigatório**. Email de cadastro |
+| `password`      | `string` | **Obrigatório**. Senha de cadastro |
+
+---
+
+#### Login de usuário (retorna o token de navegação)
+
+```http
+  POST /user/login
+```
+
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `email`      | `string` | **Obrigatório**. Email de cadastro |
+| `password`      | `string` | **Obrigatório**. Senha de cadastro |
+
+#### Retorna a máxima do dolar durante o periodo que a API foi iniciada até o momento
+
+```http
+  GET /dolar/getmax
+```
+
+#### Retorna a mínima do dolar durante o periodo que a API foi iniciada até o momento
+
+```http
+  GET /dolar/getmin
+```
+
+#### Retorna a média do dolar durante o periodo que a API foi iniciada até o momento
+
+```http
+  GET /dolar/getmedia
+```
+
+#### Retorna todas as cotações buscadas
+
+```http
+  GET /dolar/getall
+```
+
+#### Cadastro de clientes
+
+```http
+  POST /client/post
+```
+
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `email`      | `string` | **Obrigatório**. Email de cadastro |
+| `password`      | `string` | **Obrigatório**. Senha de cadastro |
+
+#### Listagem de clientes
+
+```http
+  GET /client/getall
+```
+
+## Documentação de cores
+
+| Cor               | Hexadecimal                                                |
+| ----------------- | ---------------------------------------------------------------- |
+| Pink              | ![#e708ee](https://via.placeholder.com/10/e708ee?text=+) #e708ee |
+| Purple            | ![#6633a5](https://via.placeholder.com/10/6633a5?text=+) #6633a5 |
+| Black             | ![#120F1A](https://via.placeholder.com/10/120F1A?text=+) #120F1A |
+| White             | ![#FFFFFF](https://via.placeholder.com/10/FFFFFF?text=+) #FFFFFF |
+
+
+## Licença
+
+Todo direitos reservados [Paulo Mendes](https://github.com/PauloMendees)
+
