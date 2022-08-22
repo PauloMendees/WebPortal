@@ -5,6 +5,7 @@ import EyeCloseIcon from "../../../assets/icons/EyeClose";
 import EyeOpenIcon from "../../../assets/icons/EyeOpen";
 import LockIcon from "../../../assets/icons/Lock";
 import ProfileIcon from "../../../assets/icons/Profile";
+import { webRoutes } from "../../../config/webRoutes";
 import { Button } from "../../shared/Button";
 import { Input } from "../../shared/Input";
 import SnackBar from "../../shared/SnackBar";
@@ -45,7 +46,7 @@ export function LoginForm() {
         <a
           className="cursor-pointer"
           onClick={() => {
-            router.push("/register");
+            router.push(webRoutes.register);
           }}
         >{`Cadastre-se`}</a>
         <a className="cursor-pointer">{`Esqueci minha senha`}</a>

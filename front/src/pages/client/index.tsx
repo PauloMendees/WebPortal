@@ -46,8 +46,8 @@ export default function Client() {
           </When>
           <When value={!maxLoading && !minLoading && !mediaLoading}>
             <CardValue value={maxValue?.data.value} label="Max" />
-            <CardValue value={minValue?.data.value} label="Media" />
-            <CardValue value={mediaValue?.data.value} label="Min" />
+            <CardValue value={mediaValue?.data.value} label="Media" />
+            <CardValue value={minValue?.data.value} label="Min" />
           </When>
         </div>
         <div className="bg-grayscale-900 w-full rounded-xl py-5 px-6">
